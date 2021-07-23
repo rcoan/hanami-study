@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
-require_relative '../lib/bookshelf'
+require_relative '../lib/hanami-study'
 require_relative '../apps/web/application'
 
 Hanami.configure do
@@ -14,11 +14,12 @@ Hanami.configure do
     # Available options:
     #
     #  * SQL adapter
-    #    adapter :sql, 'sqlite://db/bookshelf_development.sqlite3'
-    #    adapter :sql, 'postgresql://localhost/bookshelf_development'
-    #    adapter :sql, 'mysql://localhost/bookshelf_development'
+    #    adapter :sql, 'sqlite://db/hanami-study_development.sqlite3'
+    #    adapter :sql, 'postgresql://localhost/hanami-study_development'
+    #    adapter :sql, 'mysql://localhost/hanami-study_development'
     #
-    adapter :sql, ENV.fetch('DATABASE_URL')
+    # adapter :sql, ENV.fetch('DATABASE_URL')
+    adapter :sql, 'sqlite://db/hanami-study_development.sqlite3'
 
     ##
     # Migrations
@@ -28,7 +29,7 @@ Hanami.configure do
   end
 
   mailer do
-    root 'lib/bookshelf/mailers'
+    root 'lib/hanami-study/mailers'
 
     # See https://guides.hanamirb.org/mailers/delivery
     delivery :test
